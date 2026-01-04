@@ -12,8 +12,11 @@ from math import radians, cos, sin, asin, sqrt
 ACCEL_DATA_PATH = "./Loppuprojekti/data/experimentAccelData.csv"
 LOCATION_DATA_PATH = "./Loppuprojekti/data/experimentLocationData.csv"
 
-df_a = pd.read_csv(ACCEL_DATA_PATH)
-df_loc = pd.read_csv(LOCATION_DATA_PATH)
+ACCEL_URL = "https://raw.githubusercontent.com/mikkohaapea/fysmat-loppuprojekti/refs/heads/main/data/experimentAccelData.csv"
+LOCATION_URL = "https://raw.githubusercontent.com/mikkohaapea/fysmat-loppuprojekti/refs/heads/main/data/experimentLocationData.csv"
+
+df_a = pd.read_csv(ACCEL_URL)
+df_loc = pd.read_csv(LOCATION_URL)
 
 #rajataan datasta pois se osa, jonka aikana ei liikuttu (alusta ja lopusta)
 df_a = df_a[(df_a['Time (s)'] > 24) & (df_a['Time (s)'] < 174)].reset_index(drop=True)
